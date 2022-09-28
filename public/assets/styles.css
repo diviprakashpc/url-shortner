@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-group>.form-control, .input-group>.form-floating, .input-group>.form-select {
+    position: relative;
+    flex: 0 0 auto;
+    width: 50%;
+    min-width: 0;
+}
+
+.footer{
+    min-height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: auto;
+    font-family: 'Roboto Mono', monospace;
+}

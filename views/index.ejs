@@ -1,18 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>URL shortner</title>
-</head>
-<body>
-    <div class="container">
-        <h1>URL Shrinker</h1>
-        <form action="/shortUrls" method="POST" class="my-4 form-inline">
-          <label for="fullUrl" class="sr-only">Url</label>
-          <input required placeholder="Url" type="url" name="fullUrl" id="fullUrl" class="form-control col mr-2">
+<%- include("partials/header"); -%>
+      <section class=" container container-lg header">
+        <h1 class="mt-2">Shortly</h1>
+        <p>Only service to shorten your long url</p>
+      </section>
+      <form action="/shortUrls" method="POST" class="input-group mb-auto">
+          <label for="fullUrl" class="sr-only"></label>
+          <input required placeholder="Url" type="url" name="fullUrl" id="fullUrl" class="form-control">
           <button class="btn btn-success" type="submit">Shrink</button>
         </form>
         
@@ -30,10 +23,11 @@
                 <td><a href="<%= shortUrl.full %>"><%= shortUrl.full %></a></td>
                 <td><a href="<%= shortUrl.short %>"><%= shortUrl.short %></a></td>
                 <td><%= shortUrl.clicks %></td>
+                <form action="/delete/<%= shortUrl.short %>" method="POST">
+                  <td><button type="submit" class="btn btn-sm btn-outline-danger">Delete</button></td>
+                </form>
               </tr>
             <% }) %>
           </tbody>
         </table>
-      </div>
-</body>
-</html>
+        <%- include("partials/footer"); -%>
